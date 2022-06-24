@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\AuctionGroups;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,6 +10,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\RegisterForm;
 
 class SiteController extends Controller
 {
@@ -61,7 +63,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index',[
+            'groups' => AuctionGroups::find()->all()
+        ]);
     }
 
     /**
@@ -83,6 +87,20 @@ class SiteController extends Controller
         $model->password = '';
         return $this->render('login', [
             'model' => $model,
+        ]);
+    }
+
+    public function actionRegister()
+    {
+        $model = new RegisterForm();
+
+        if($model->load(Yii::$app->request->post()) && $model->signup())
+        {
+            return $this->redirect(Yii::$app->getHomeUrl());
+        }
+
+        return $this->render('register',[
+            'model' => $model 
         ]);
     }
 
