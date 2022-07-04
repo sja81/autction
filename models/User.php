@@ -8,6 +8,9 @@ use yii\db\ActiveRecord;
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
 
+    const ADMIN_ROLE = 'admin';
+    const USER_ROLE = 'user';
+
     public static function tableName()
     {
         return 'user';
@@ -82,5 +85,10 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public function getBids()
+    {
+        return $this->hasMany(Bids::class, ['customer_id' => 'id']);
     }
 }
