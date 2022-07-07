@@ -38,6 +38,12 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            (!(Yii::$app->user->isGuest) && Yii::$app->user->identity->user_role) == 'admin'  ? (
+                ['label' => 'Archive', 'url' => ['/admin/archive']]
+            ) : '' ,
+            (!(Yii::$app->user->isGuest) && Yii::$app->user->identity->user_role) == 'admin'  ? (
+                ['label' => 'Statistics', 'url' => ['/admin/statistics']]
+            ) : '' ,
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -49,7 +55,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+                )
         ],
     ]);
     NavBar::end();

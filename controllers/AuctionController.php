@@ -23,27 +23,36 @@ class AuctionController extends Controller
         return parent::beforeAction($action);
     }
 
+    private function saveBids(Bids $bid, array $data): void
+    {
+        foreach ($data as $col => $value) {
+            $bid->$col = $value;
+        }
+        $bid->save();
+    }
+
+    private function saveEmail($data) :void
+    {   
+        $emailAddresses = explode(',', $data);
+
+        foreach ($emailAddresses as  $emailAddress) {
+            $mailer = new Mail($emailAddress, 'Mail', 'mail.php');
+            $mailer->sendHTMLMessage();
+        }
+    }
+
     public function actionItem(int $id)
     {
-        $bid = new Bids();
-
         if (Yii::$app->request->isPost) {
             if (Yii::$app->request->post('amount')) {
+                $bid = new Bids();
                 $data = Yii::$app->request->post();
-                foreach ($data as $col => $value) {
-                    $bid->$col = $value;
-                }
-                $bid->save();
+                $this->saveBids($bid, $data);
             }
 
             if (Yii::$app->request->post('email')) {
                 $data = Yii::$app->request->post();
-                $emailAddresses = explode(',', $data);
-
-                foreach ($emailAddresses as  $emailAddress) {
-                    $mailer = new Mail($emailAddress, 'Mail', 'mail.php');
-                    $mailer->sendHTMLMessage();
-                }
+                $this->saveEmail($data);
             }
         }
 
