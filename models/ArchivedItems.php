@@ -10,4 +10,9 @@ class Archiveditems extends ActiveRecord
     {
         return 'items_archive';
     }
+
+    public function getGroup()
+    {
+        return $this->hasOne(ArchivedGroups::class, ['group_id' => 'group_id']);
+    }
 }

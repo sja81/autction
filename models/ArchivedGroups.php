@@ -10,4 +10,9 @@ class ArchivedGroups extends ActiveRecord
     {
         return 'groups_archive';
     }
+
+    public function getItems()
+    {
+        return $this->hasMany(Archiveditems::class, ['group_id' => 'group_id']);
+    }
 }

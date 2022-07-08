@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= Html::a($item->title, ['/auction/item', 'id' => $item->id]) ?>
                         <div class="items-country mt-4">
                         <p>
-                        <?= Html::img('@web/flags/'. $item->country .'.png', ['class' => 'country-flag']) .' ' . $item->town?>
+                        <?= Html::img('@web/flags/'. strtolower($item->country) .'.png', ['class' => 'country-flag']) .' ' . $item->town?>
                     </p>
                         </div>
                         <div class="description">

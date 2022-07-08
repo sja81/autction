@@ -1,40 +1,37 @@
 <?php
 
-use yii\helpers\Html;
 use yii\grid\GridView;
 
-?>
+$this->params['breadcrumbs'][] = ['label' => 'Archived Groups', 'url' => Yii::$app->request->referrer];
+$this->params['breadcrumbs'][] = 'Archived Auction Items';
+?>  
 
-<h2 class="my-4">
-    Archived Auction Groups
+<h2 class="mb-4 mt-5">
+    Archived Auction Items
 </h2>
 
 <?= GridView::widget([
-    'dataProvider' => $auctionGroupsDataProvider,
-
+    'dataProvider' => $auctionItemsDataProvider,
     'pager' => [
         'linkOptions' => ['class' => 'page-link'],
         'disabledPageCssClass' => 'page-link',
     ],
     'columns' => [
-        // [
-        //     'attribute' => 'group_id',
-        // ],
         [
             'label' => 'Group name',
             'attribute' => 'title',
             'format' => 'raw',
-            'value' => function ($group) {
-                return Html::a($group->title, ['admin/archived-items', 'id' => $group['group_id']]);
+            'value' => function ($data) {
+                return $data->group->title;
             }
         ],
-        'url',
+        'title',
         'country',
-        'lots',
+        'last_bid',
         'created_at:datetime',
     ],
     'tableOptions' => [
-        'class' => 'table'
+        'class'=>'table'
     ],
-    'summary' => "",
+    'summary'=> "",
 ]) ?>

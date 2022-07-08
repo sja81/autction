@@ -145,7 +145,7 @@ a.desc:after {
 }
 
 .form-control {
-    border-radius: 0.5rem;
+    border-radius: 0.6rem !important;
 }
 
 .btn{
@@ -163,4 +163,36 @@ a.desc:after {
 
 .breadcrumb {
     background-color: #f7f8fc !important ;
+}
+
+.table{
+    border: 1px solid gainsboro;
+    border-radius: 0.8rem;
+    border-collapse: separate; 
+}
+
+.table thead th{
+    border-bottom: none;
+}
+
+.table th {
+    border-top: none;
+}
+
+.table thead {
+    border-radius: 2rem !important;
+    border-collapse: separate; 
+}
+
+.table thead a {
+    color: rgb(39, 39, 150);
+}
+
+.pagination {
+    border-radius: 1rem !important;
+    border-collapse: separate; 
+}
+
+.search-btn {
+    border-radius: 0.7rem !important;
 }

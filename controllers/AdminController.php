@@ -17,17 +17,23 @@ class AdminController extends Controller
                 'pageSize' => 10,
             ]
         ]);
+        return $this->render('archive', [
+            'auctionGroupsDataProvider' => $auctionGroupsDataProvider
+        ]);
+    }
 
+    public function actionArchivedItems(int $id)
+    {
         $auctionItemsDataProvider = new ActiveDataProvider([
-            'query' => ArchivedItems::find(),
+            'query' => ArchivedItems::find()->where(['group_id' => $id]),
             'pagination' => [
                 'pageSize' => 10,
             ]
         ]);
 
-        return $this->render('archive', [
-            'auctionGroupsDataProvider' => $auctionGroupsDataProvider,
-            'auctionItemsDataProvider' => $auctionItemsDataProvider
+        return $this->render('archived-items',[
+            'auctionItemsDataProvider' => $auctionItemsDataProvider,
+            'items' => ArchivedItems::find()->where(['group_id' => $id])->all()
         ]);
     }
 }

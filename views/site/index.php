@@ -21,7 +21,7 @@ $this->title = 'Home';
                         <?= Html::a($group->title ,['/auction/view', 'id' => $group->id]) ?>
                     </div>
                     <p>
-                        <?= Html::img('@web/flags/'. $group->country .'.png', ['class' => 'country-flag mr-1']) .' ' . $group->town . ' - ' .$group->lots . ' lots' ?>
+                        <?= Html::img('@web/flags/'. strtolower($group->country) .'.png', ['class' => 'country-flag mr-1']) .' ' . $group->town . ' - ' .$group->lots . ' lots' ?>
                     </p>
                 </div>
             </div>

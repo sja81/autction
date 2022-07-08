@@ -18,6 +18,16 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" sizes="57x57" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" sizes="57x57" href="/images/favicon/favicon-57x57.png">
+    <link rel="icon" sizes="72x72" href="/images/favicon/favicon-72x72.png">
+    <link rel="icon" sizes="76x76" href="/images/favicon/favicon-76x76.png">
+    <link rel="icon" sizes="114x114" href="/images/favicon/images/favicon/favicon-114x114.png">
+    <link rel="icon" sizes="120x120" href="/images/favicon/favicon-120x120.png">
+    <link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+    <link rel="icon" sizes="152x152" href="/images/favicon/favicon-152x152.png">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -31,9 +41,13 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
+            'class' => 'navbar navbar-expand-md navbar-dark bg-dark p-2',
         ],
     ]);
+    echo '<form method="POST" class="d-flex w-50" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search for any item..." aria-label="Search">
+    <button class="btn search-btn btn-primary mr-4 px-3 ml-2" type="submit">Search</button>
+    </form>' ;
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
