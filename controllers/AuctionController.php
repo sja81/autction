@@ -32,8 +32,8 @@ class AuctionController extends Controller
     }
 
     private function saveEmail($data) :void
-    {   
-        $emailAddresses = explode(',', $data);
+    {
+        $emailAddresses = explode(',', implode(',' ,$data));
 
         foreach ($emailAddresses as  $emailAddress) {
             $mailer = new Mail($emailAddress, 'Mail', 'mail.php');

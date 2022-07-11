@@ -8,13 +8,13 @@ $this->params['breadcrumbs'][] = ['label' => 'Items', 'url' => Yii::$app->reques
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mt-3">
-    <h2>
+    <h2 class="ml-3">
         <?= $this->title ?>
     </h2>
 </div>
 
-<div class="item-container row mt-5 w-100 pb-4">
-    <div class="col-sm-12 col-lg-1 mr-4">
+<div class="row item-bid-container mt-5 w-100 pb-4">
+    <div class="col-sm-12 col-lg-2 col-xl-1 mr-4">
         <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
         <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
         <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-sm-12 col-lg-9 big-img-container">
         <?= Html::img('@web/fotec.jpg', ['class' => 'item-big-image']) ?>
     </div>
-    <div class="col bid-container pt-4">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3 bid-container pt-4">
         <?php
         if (Yii::$app->user->isGuest) {
         ?>
@@ -126,7 +126,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
-<div class="description col mt-5">
+<div class="description col mt-5 ml-4">
     <h4>
         <?= Yii::t('app', 'Description') ?>
     </h4>

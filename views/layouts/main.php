@@ -41,13 +41,13 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark p-2',
+            'class' => 'navbar navbar-expand-md mt-1',
         ],
     ]);
     echo '<form method="POST" class="d-flex w-50" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search for any item..." aria-label="Search">
-    <button class="btn search-btn btn-primary mr-4 px-3 ml-2" type="submit">Search</button>
-    </form>' ;
+            <input class="form-control me-2" type="search" placeholder="Search for any item..." aria-label="Search">
+            <button class="btn search-btn btn-primary mr-4 px-3 ml-2" type="submit">Search</button>
+        </form>';
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [

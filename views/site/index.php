@@ -7,11 +7,11 @@ $this->registerCssFile('@web/css/site.css');
 $this->title = 'Home';
 ?>
 <h2 class="mt-3"> <?= Yii::t('app', 'Auction Groups') ?></h2>
-<div class="row my-4">
+<div class="row group-container my-4">
     <?php
     foreach ($groups as $group) {
     ?>
-        <div class="col-sm-12 col-lg-6  group-card p-3">
+        <div class="col-sm-12 col-md-12 col-lg-6  group-card p-3">
             <div class="row ">
                 <div class="col flex-grow-0">
                 <?= Html::a(Html::img('@web/fotec.jpg', ['class' => 'cover-img']),['/auction/view', 'id' => $group->id]) ?>

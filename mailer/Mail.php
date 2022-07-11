@@ -1,4 +1,5 @@
 <?php
+
 namespace app\mailer;
 
 use Yii;
@@ -6,7 +7,7 @@ use Yii;
 class Mail
 {
 
-    public function __construct($recipient, $message, $view, $sender = 'test@test.sk')
+    public function __construct($recipient, $message, $view, $sender = 'aukcia@aoreal.sk')
     {
         $this->recipient = $recipient;
         $this->message = $message;
@@ -43,29 +44,10 @@ class Mail
      */
     public function sendHTMLMessage(): void
     {
-        try {
-            $mailer = Yii::$app->mailer;
-            if (!is_null($this->message)) {
-                $mailer
-                    ->compose($this->view)
-                    ->setHtmlBody($this->message)
-                    ->setFrom($this->sender)
-                    ->setTo($this->recipient)
-                    ->setCharset('utf-8')
-                    ->setSubject($this->subject)
-                    ->send();
-            } else {
-                $mailer
-                    ->compose($this->view ,$this->data)
-                    ->setFrom($this->sender)
-                    ->setTo($this->recipient)
-                    ->setCharset('utf-8')
-                    ->setSubject($this->subject)
-                    ->send();
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-            exit;
-        }
+        Yii::$app->mailer->compose($this->view)
+            ->setFrom($this->sender)
+            ->setTo($this->recipient)
+            ->setSubject($this->message)
+            ->send();
     }
 }
