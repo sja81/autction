@@ -69,7 +69,7 @@ a.desc:after {
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
     padding-top: 7px;
-    color: rgba(255, 255, 255, 0.5);
+    color: black;
 }
 
 @media(max-width:767px) {
@@ -83,7 +83,7 @@ a.desc:after {
 .nav > li > form > button.logout:focus,
 .nav > li > form > button.logout:hover {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgb(60, 60, 214) !important;
 }
 
 .nav > li > form > button.logout:focus {
@@ -155,7 +155,7 @@ a.desc:after {
 }
 
 .btn{
-    border-radius: 0.7rem;
+    border-radius: 0.7rem !important;
 }
 
 .bid-container {
@@ -230,3 +230,23 @@ a.desc:after {
 .navbar a {
     color: black;
 }
+
+.thumbnail-container {
+    margin-right: 3rem;
+}
+
+.nav-link:hover {
+    color: rgb(60, 60, 214) !important;
+}
+
+.search-img {
+    color: black;
+    top: 0px;
+    right: 0px;
+    width: 1rem;
+    margin-top: 0.35rem;
+}
+/* .navbar-toggler {
+   background: #333 !important;
+   color: white !important;
+} */

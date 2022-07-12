@@ -1,6 +1,6 @@
 <?php
 
-namespace console\controllers;
+namespace app\commands;
 
 use app\models\Items;
 use yii\console\Controller;

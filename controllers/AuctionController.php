@@ -31,18 +31,19 @@ class AuctionController extends Controller
         $bid->save();
     }
 
-    private function saveEmail($data) :void
+    private function saveEmail($data, $itemData) :void
     {
         $emailAddresses = explode(',', implode(',' ,$data));
 
         foreach ($emailAddresses as  $emailAddress) {
-            $mailer = new Mail($emailAddress, 'Mail', 'mail.php');
+            $mailer = new Mail($emailAddress, 'Aukcia', 'mail.php', $itemData);
             $mailer->sendHTMLMessage();
         }
     }
 
     public function actionItem(int $id)
     {
+        $item = Items::findOne($id);
         if (Yii::$app->request->isPost) {
             if (Yii::$app->request->post('amount')) {
                 $bid = new Bids();
@@ -52,12 +53,12 @@ class AuctionController extends Controller
 
             if (Yii::$app->request->post('email')) {
                 $data = Yii::$app->request->post();
-                $this->saveEmail($data);
+                $this->saveEmail($data, $item);
             }
         }
 
         return $this->render('auction-item', [
-            'item' => Items::findOne($id),
+            'item' => $item,
             'bids' =>  Bids::find()->where(['item_id' => $id])->all(),
             'highestBid' => Bids::find()->where(['item_id' => $id])->orderBy(['amount' => SORT_DESC])->one()
         ]);

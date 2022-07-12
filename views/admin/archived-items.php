@@ -6,7 +6,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Archived Groups', 'url' => Yii::$a
 $this->params['breadcrumbs'][] = 'Archived Auction Items';
 ?>  
 
-<h2 class="mb-4 mt-5">
+<h2 class="my-4">
     Archived Auction Items
 </h2>
 

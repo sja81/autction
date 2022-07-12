@@ -13,14 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
     </h2>
 </div>
 
-<div class="row item-bid-container mt-5 w-100 pb-4">
-    <div class="col-sm-12 col-lg-2 col-xl-1 mr-4">
-        <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
-        <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
-        <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
-        <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
+<div class="row item-bid-container mt-5 pb-4">
+    <div class="col-sm-12 col-md-12 col-lg-1 thumbnail-container">
+        <?php foreach(range(1, 4) as $img) { ?>
+            <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
+        <?php }?>
     </div>
-    <div class="col-sm-12 col-lg-9 big-img-container">
+    <div class="col-sm-12 col-md-9 col-lg-9 big-img-container">
         <?= Html::img('@web/fotec.jpg', ['class' => 'item-big-image']) ?>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3 bid-container pt-4">
