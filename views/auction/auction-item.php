@@ -14,19 +14,24 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <div class="row item-bid-container mt-5 pb-4">
-    <div class="col-sm-12 col-md-12 col-lg-1 thumbnail-container">
-        <?php foreach(range(1, 4) as $img) { ?>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-1 thumbnail-container d-none d-sm-none d-md-none d-lg-block">
+        <?php foreach (range(1, 4) as $img) { ?>
             <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
-        <?php }?>
+        <?php } ?>
     </div>
     <div class="col-sm-12 col-md-9 col-lg-9 big-img-container">
         <?= Html::img('@web/fotec.jpg', ['class' => 'item-big-image']) ?>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3 bid-container pt-4">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-1 thumbnail-container d-lg-none d-lg-none mt-4">
+        <?php foreach (range(1, 4) as $img) { ?>
+            <?= Html::img('@web/fotec.jpg', ['class' => 'item-thumbnail mb-2']) ?>
+        <?php } ?>
+    </div>
+    <div class="col-11 col-sm-10 col-md-8 col-lg-9 col-xl-3 bid-container pt-4 mt-4 mt-xl-0 ml-3 w-full">
         <?php
         if (Yii::$app->user->isGuest) {
         ?>
-            <div class="d-flex flex-column justify-content-center align-items-center w-full">
+            <div class="d-flex flex-column justify-content-center align-items-center w-full pb-4">
                 <button class="btn btn-primary mb-3 w-75">
                     <a href="/site/login" style="color:white">
                         Log in to bid
@@ -79,12 +84,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                             <div class="modal-body">
                                 <p style="font-size: 0.875rem ;">
-                                    You can enter multiple emails by adding a comma:  <span style="color: gray;">email@example.com,second-email@example.com</span>
+                                    You can enter multiple emails by adding a comma: <span style="color: gray;">email@example.com,second-email@example.com</span>
                                 </p>
                                 <form method="POST" action="#" class="d-flex justify-content-center align-items-center mt-3">
                                     <!-- <input id="form-token" type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->csrfToken ?>"/> -->
                                     <input type="text" name="email" class="form-control mr-2" placeholder="email@example.com" aria-label="Bid" aria-describedby="basic-addon1">
-                            </div>  
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary w-25">Send</button>
